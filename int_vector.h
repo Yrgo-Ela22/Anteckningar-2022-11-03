@@ -1,6 +1,6 @@
 /**************************************************************************************************
 * int_vector.h: Implementering av dynamiska vektorer för lagring av signerade heltal av datatypen
-*               int via strukten int_vector samt motsvarande associerade funktioner.
+*               int via strukten int_vector samt associerade funktioner.
 **************************************************************************************************/
 #ifndef INT_VECTOR_H_
 #define INT_VECTOR_H_
@@ -16,7 +16,7 @@
 struct int_vector
 {
    int* data;   /* Pekare till dynamiskt fält innehållande heltal. */
-   size_t size; /* Vektorns storlek, dvs. antalet element. */
+   size_t size; /* Vektorns storlek, dvs. antalet element den rymmer. */
 };
 
 /**************************************************************************************************
@@ -27,7 +27,7 @@ struct int_vector
 void int_vector_init(struct int_vector* self);
 
 /**************************************************************************************************
-* int_vector_clear: Tömmer innehållet i angiven vektor genom att frigöra allokerat minne
+* int_vector_clear: Tömmer innehållet i angiven vektor genom att frigöra allokerat minne.
 *
 *                   - self: Pekare till vektorn som ska tömmas.
 **************************************************************************************************/
