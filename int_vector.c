@@ -1,6 +1,6 @@
 /**************************************************************************************************
-* int_vector.c: Innehåller definitioner av associerade funktioner för strukten int_vector, som 
-*               används för implementering av dynamiska vektorer för lagring av signerade heltal.
+* int_vector.c: InnehÃ¥ller definitioner av associerade funktioner fÃ¶r strukten int_vector, som 
+*               anvÃ¤nds fÃ¶r implementering av dynamiska vektorer fÃ¶r lagring av signerade heltal.
 **************************************************************************************************/
 #include "int_vector.h"
 
@@ -17,9 +17,9 @@ void int_vector_init(struct int_vector* self)
 }
 
 /**************************************************************************************************
-* int_vector_clear: Tömmer innehållet i angiven vektor genom att frigöra allokerat minne
+* int_vector_clear: TÃ¶mmer innehÃ¥llet i angiven vektor genom att frigÃ¶ra allokerat minne.
 *
-*                   - self: Pekare till vektorn som ska tömmas.
+*                   - self: Pekare till vektorn som ska tÃ¶mmas.
 **************************************************************************************************/
 void int_vector_clear(struct int_vector* self)
 {
@@ -45,9 +45,9 @@ struct int_vector* int_vector_new(const size_t size)
 }
 
 /**************************************************************************************************
-* int_vector_delete: Frigör minne för en heapallokerad vektor. Vektorpekarens adress passeras 
-*                    för att både frigöra minnet för det dynamiska fält denna peka på, minnet 
-*                    för själva vektorn samt att vektorpekaren sätts till null.
+* int_vector_delete: FrigÃ¶r minne fÃ¶r en heapallokerad vektor. Vektorpekarens adress passeras 
+*                    fÃ¶r att bÃ¥de frigÃ¶ra minnet fÃ¶r det dynamiska fÃ¤lt denna peka pÃ¥, minnet 
+*                    fÃ¶r sjÃ¤lva vektorn samt att vektorpekaren sÃ¤tts till null.
 *
 *                    - self: Adressen till vektorpekaren.
 **************************************************************************************************/
@@ -60,10 +60,10 @@ void int_vector_delete(struct int_vector** self)
 }
 
 /**************************************************************************************************
-* int_vector_resize: Ändrar storleken / kapaciteten på en vektor via omallokering. Vid lyckad
+* int_vector_resize: Ã„ndrar storleken / kapaciteten pÃ¥ en vektor via omallokering. Vid lyckad
 *                    omallokering returneras 0, annars returneras felkod 1.
 *
-*                    - self    : Pekare till vektorn vars storlek skall ändras.
+*                    - self    : Pekare till vektorn vars storlek skall Ã¤ndras.
 *                    - new_size: Vektorns nya storlek efter omallokeringen.
 **************************************************************************************************/
 int int_vector_resize(struct int_vector* self,
@@ -77,11 +77,11 @@ int int_vector_resize(struct int_vector* self,
 }
 
 /**************************************************************************************************
-* int_vector_push: Lägger till ett nytt element längst bak i en vektor. Ifall det nya elementet
-*                  lyckas läggas till returneras 0, annars returneras felkod 1.
+* int_vector_push: LÃ¤gger till ett nytt element lÃ¤ngst bak i en vektor. Ifall det nya elementet
+*                  lyckas lÃ¤ggas till returneras 0, annars returneras felkod 1.
 *
 *                  - self       : Pekare till vektorn som ska tilldelas det nya elementet.
-*                  - new_element: Det nya element som skall läggas till längst bak i vektorn.
+*                  - new_element: Det nya element som skall lÃ¤ggas till lÃ¤ngst bak i vektorn.
 **************************************************************************************************/
 int int_vector_push(struct int_vector* self,
                     const int new_element)
@@ -94,7 +94,7 @@ int int_vector_push(struct int_vector* self,
 }
 
 /**************************************************************************************************
-* int_vector_pop: Tar bort ett element längst bak i angiven vektor, om ett sådant finns. 
+* int_vector_pop: Tar bort ett element lÃ¤ngst bak i angiven vektor, om ett sÃ¥dant finns. 
 *                 Ifall elementet lyckas tas bort returneras 0, annars returneras felkod 1.
 *
 *                 - self: Pekare till vektorn vars sista elemenet ska tas bort.
@@ -104,7 +104,7 @@ int int_vector_pop(struct int_vector* self)
    if (self->size <= 1)
    {
       int_vector_clear(self);
-      return 1;
+      return 0;
    }
    else
    {
@@ -117,11 +117,11 @@ int int_vector_pop(struct int_vector* self)
 }
 
 /**************************************************************************************************
-* int_vector_print: Skriver ut innehållet lagrat i angiven vektor via angiven utström, där
-*                   standardutenheten stdout används som default för utskrift i terminalen.
+* int_vector_print: Skriver ut innehÃ¥llet lagrat i angiven vektor via angiven utstrÃ¶m, dÃ¤r
+*                   standardutenheten stdout anvÃ¤nds som default fÃ¶r utskrift i terminalen.
 *
-*                   - self   : Pekare till vektorn vars innehåll ska skrivas ut.
-*                   - ostream: Pekare till angiven utström (default = stdout).
+*                   - self   : Pekare till vektorn vars innehÃ¥ll ska skrivas ut.
+*                   - ostream: Pekare till angiven utstrÃ¶m (default = stdout).
 **************************************************************************************************/
 void int_vector_print(const struct int_vector* self,
                       FILE* ostream)
@@ -140,8 +140,8 @@ void int_vector_print(const struct int_vector* self,
 }
 
 /**************************************************************************************************
-* int_vector_begin: Returnerar adressen till det första elementet i angiven vektor.
-*                   Om vektorn är tom returneras null.
+* int_vector_begin: Returnerar adressen till det fÃ¶rsta elementet i angiven vektor.
+*                   Om vektorn Ã¤r tom returneras null.
 * 
 *                   - self: Pekare till vektorn.
 **************************************************************************************************/
@@ -152,7 +152,7 @@ int* int_vector_begin(const struct int_vector* self)
 
 /**************************************************************************************************
 * int_vector_end: Returnerar adressen direkt efter det sista elementet i angiven vektor. 
-*                 Om vektorn är tom returneras null.
+*                 Om vektorn Ã¤r tom returneras null.
 *
 *                 - self: Pekare till vektorn.
 **************************************************************************************************/
@@ -163,7 +163,7 @@ int* int_vector_end(const struct int_vector* self)
 
 /**************************************************************************************************
 * int_vector_last: Returnerar adressen till det sista elementet i angiven vektor. 
-*                  Om vektorn är tom returneras null.
+*                  Om vektorn Ã¤r tom returneras null.
 *
 *                 - self: Pekare till vektorn.
 **************************************************************************************************/
